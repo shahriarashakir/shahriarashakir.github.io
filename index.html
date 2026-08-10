@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional legal portfolio of Shahriar Ahmed Shakir, LLB Law student and placement paralegal." />
+  <title>Shahriar Ahmed Shakir | Legal Portfolio</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5d6975;
+      --paper: #f6f3ee;
+      --card: #ffffff;
+      --accent: #6d1636;
+      --accent-2: #b38b59;
+      --line: #ded8cf;
+      --shadow: 0 18px 45px rgba(25, 31, 38, 0.10);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(109,22,54,.08), transparent 30%),
+        linear-gradient(180deg, #fbfaf8 0%, var(--paper) 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(251, 250, 248, .88);
+      border-bottom: 1px solid rgba(109,22,54,.10);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus { color: var(--accent); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 10px 25px rgba(109,22,54,.18);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(109,22,54,.24);
+    }
+
+    .button.secondary {
+      color: var(--accent);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .hero {
+      padding: 92px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.15;
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      letter-spacing: -.045em;
+    }
+
+    .hero .lead {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.24rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      background: linear-gradient(145deg, #ffffff, #f2ede7);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 0 0 0 100%;
+      background: linear-gradient(135deg, rgba(109,22,54,.16), rgba(179,139,89,.16));
+    }
+
+    .monogram {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(109,22,54,.22);
+      background: #fff;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(36, 39, 43, .10);
+    }
+
+
+    .profile-photo-wrap {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 24px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 22px;
+      border: 1px solid rgba(109,22,54,.16);
+      box-shadow: 0 14px 34px rgba(36, 39, 43, .16);
+      background: #eee;
+    }
+
+    .profile-caption {
+      margin: 10px 2px 0;
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: center;
+    }
+
+    .hero-card dl {
+      position: relative;
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 12px 16px;
+      margin: 0;
+    }
+
+    .hero-card dt {
+      color: var(--muted);
+      font-size: .83rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .hero-card dd {
+      margin: 0;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    section { padding: 72px 0; }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      letter-spacing: -.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(25,31,38,.06);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.45rem;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    .experience {
+      background: #1e2025;
+      color: #fff;
+    }
+
+    .experience .section-heading p,
+    .experience .meta,
+    .experience li { color: #cfd2d7; }
+
+    .timeline {
+      display: grid;
+      gap: 22px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.045);
+    }
+
+    .timeline-date {
+      color: #e4c9aa;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+      font-size: 1.65rem;
+    }
+
+    .timeline-item .meta { margin: 0 0 15px; }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    ul.clean li + li { margin-top: 8px; }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .practice {
+      min-height: 112px;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      font-weight: 750;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .practice:hover {
+      transform: translateY(-4px);
+      border-color: rgba(109,22,54,.5);
+    }
+
+    .practice-group { margin-bottom: 30px; }
+    .practice-group:last-child { margin-bottom: 0; }
+
+    .practice-group h3 {
+      margin-bottom: 16px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .note-tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: #f0e7ea;
+      color: var(--accent);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .note h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .note-meta { margin: 0 0 12px; color: var(--muted); font-size: .86rem; font-weight: 600; }
+    .note .placeholder { color: var(--muted); font-style: italic; }
+    .note-hint { margin-top: 22px; color: var(--muted); font-size: .92rem; }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .result-row:last-child { border-bottom: 0; }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f0e7ea;
+      color: var(--accent);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .courses {
+      display: grid;
+      gap: 14px;
+    }
+
+    .course {
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent-2);
+      border-radius: 0 12px 12px 0;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(25,31,38,.05);
+    }
+
+    .course strong { display: block; }
+
+    .contact {
+      padding-bottom: 92px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 42px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), #421024);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .contact-box p {
+      max-width: 650px;
+      margin: 0;
+      color: #eadde3;
+    }
+
+    .contact-box .button {
+      background: #fff;
+      border-color: #fff;
+      color: var(--accent);
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .education-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+      .timeline-item { grid-template-columns: 1fr; gap: 10px; }
+      .contact-box { align-items: start; }
+    }
+
+    @media (max-width: 720px) {
+      .menu-button { display: block; }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 10px; }
+      .nav-links .button { margin-top: 8px; }
+
+      .hero { padding-top: 58px; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .hero-card { padding: 28px 24px; }
+      .profile-photo { aspect-ratio: 4 / 5; object-position: center 20%; }
+  
+    .profile-photo-wrap {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 24px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 22px;
+      border: 1px solid rgba(109,22,54,.16);
+      box-shadow: 0 14px 34px rgba(36, 39, 43, .16);
+      background: #eee;
+    }
+
+    .profile-caption {
+      margin: 10px 2px 0;
+      color: var(--muted);
+      font-size: .82rem;
+      text-align: center;
+    }
+
+    .hero-card dl { grid-template-columns: 1fr; gap: 4px; }
+      .hero-card dd { margin-bottom: 10px; }
+      section { padding: 58px 0; }
+    }
+
+    @media print {
+      .site-header, .hero-actions, .contact, footer { display: none; }
+      body { background: #fff; }
+      .hero, section { padding: 30px 0; }
+      .card, .practice, .timeline-item { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">SHAHRIAR A. SHAKIR</a>
+      <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#practice">Practice Areas</a>
+        <a href="#education">Education</a>
+        <a href="#writing">Writing</a>
+        <a class="button" href="Shahriar_Ahmed_Shakir_CV.docx" download>Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">LLB Law Student · Placement Paralegal</p>
+          <h1>Shahriar Ahmed Shakir</h1>
+          <p class="lead">
+            A motivated and detail-oriented law student at the University of Hertfordshire,
+            working voluntarily as a paralegal at Imran &amp; Co Solicitors since May 2024 and undertaking a formal placement year there from September 2025 to August 2026, developing practical legal experience across immigration,
+            civil litigation, employment, family, housing, welfare and regulatory matters.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#experience">View Experience</a>
+            <a class="button secondary" href="mailto:shahriar.shakir@hotmail.com">Contact Me</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Personal details">
+          <div class="profile-photo-wrap">
+            <img class="profile-photo" src="shahriar-profile.jpg" alt="Professional portrait of Shahriar Ahmed Shakir" />
+            <p class="profile-caption">LLB Law Student · Placement Paralegal</p>
+          </div>
+          <dl>
+            <dt>Location</dt>
+            <dd>London, United Kingdom</dd>
+            <dt>Telephone</dt>
+            <dd><a href="tel:+447466471282">+44 7466 471282</a></dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:shahriar.shakir@hotmail.com">shahriar.shakir@hotmail.com</a></dd>
+            <dt>Languages</dt>
+            <dd>Bengali — Native<br>English — Fluent</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Professional Profile</p>
+          <h2>Combining legal study with practical experience</h2>
+          <p>
+            My placement has enabled me to apply legal principles to live matters, improve my
+            research and drafting, organise complex evidence, communicate professionally with
+            clients and work effectively to strict deadlines.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Core Legal Skills</h3>
+            <p>
+              Legal research, professional drafting, case-file management, evidence review,
+              chronology preparation, client communication, document organisation,
+              confidentiality and Microsoft Office.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Career Focus</h3>
+            <p>
+              I am working towards a career at the Bar, with a particular interest in public
+              and administrative law and the planning and environmental practice connected to it.
+              My placement has given me hands-on exposure to appeals, Administrative Review,
+              Pre-Action Protocol correspondence and Judicial Review — the process of testing
+              whether the decisions of public bodies are lawful.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Work Experience</p>
+          <h2>Placement Paralegal</h2>
+          <p>
+            Ongoing voluntary paralegal experience since May 2024, together with a formal University of Hertfordshire placement year from September 2025 to August 2026. All work is described in general
+            terms; no confidential client information is disclosed.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">May 2024 — Present</div>
+            <div>
+              <h3>Imran &amp; Co Solicitors</h3>
+              <p class="meta">Volunteer Paralegal · London</p>
+              <ul class="clean">
+                <li>Continue to gain practical experience by supporting solicitors and fee earners across a broad legal caseload.</li>
+                <li>Conduct legal and factual research using legislation, case law, procedural guidance and reliable secondary sources.</li>
+                <li>Assist with legal drafting, professional correspondence, attendance notes, chronologies, case summaries and witness-statement material.</li>
+                <li>Review and organise supporting evidence, maintain accurate case files, paginate documents and monitor deadlines.</li>
+                <li>Communicate professionally with clients, counsel, public authorities and third parties while maintaining confidentiality.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Sep 2025 — Aug 2026</div>
+            <div>
+              <h3>Imran &amp; Co Solicitors</h3>
+              <p class="meta">Placement-Year Paralegal · London</p>
+              <ul class="clean">
+                <li>Undertake a formal university placement year as part of the LLB degree at the University of Hertfordshire.</li>
+                <li>Support matters across immigration, civil litigation, employment, family, housing, welfare benefits and regulatory work.</li>
+                <li>Assist with Administrative Review, immigration appeals, Pre-Action Protocol correspondence and Judicial Review-related case preparation.</li>
+                <li>Prepare and organise client-care documents, evidence bundles, legal representations and case-management materials under supervision.</li>
+                <li>Develop professional skills in legal research, drafting, client communication, deadline management and ethical practice.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Placement Work Areas</p>
+          <h2>Broad practical exposure</h2>
+          <p>
+            My placement has given me experience across the areas below, grouped by field.
+            I have found the public and administrative law work — challenging the decisions
+            of public bodies — the most engaging.
+          </p>
+        </div>
+
+        <div class="practice-group">
+          <h3>Public &amp; Administrative Law</h3>
+          <div class="practice-grid">
+            <div class="practice">Judicial Review</div>
+            <div class="practice">Pre-Action Protocol</div>
+            <div class="practice">Administrative Review</div>
+            <div class="practice">Immigration Appeals (FtT &amp; UT &amp; CoA)</div>
+            <div class="practice">Deportation</div>
+            <div class="practice">Detention</div>
+          </div>
+        </div>
+
+        <div class="practice-group">
+          <h3>Immigration</h3>
+          <div class="practice-grid">
+            <div class="practice">Entry Clearance — Partner</div>
+            <div class="practice">Entry Clearance — Visitor</div>
+            <div class="practice">Skilled Worker &amp; Graduate Routes</div>
+            <div class="practice">FLR, Settlement &amp; Naturalisation</div>
+            <div class="practice">Asylum</div>
+            <div class="practice">Fee Waivers &amp; Change of Conditions</div>
+            <div class="practice">Sponsor Licences</div>
+            <div class="practice">Right of Abode &amp; British Passports</div>
+            <div class="practice">Domestic Violence (Immigration)</div>
+          </div>
+        </div>
+
+        <div class="practice-group">
+          <h3>Family</h3>
+          <div class="practice-grid">
+            <div class="practice">Child Arrangements</div>
+            <div class="practice">Divorce</div>
+            <div class="practice">Domestic Violence</div>
+          </div>
+        </div>
+
+        <div class="practice-group">
+          <h3>Other Civil Matters</h3>
+          <div class="practice-grid">
+            <div class="practice">Civil Litigation</div>
+            <div class="practice">Employment</div>
+            <div class="practice">Housing</div>
+            <div class="practice">Welfare Benefits</div>
+            <div class="practice">Regulatory</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Education &amp; Development</p>
+          <h2>Academic and professional growth</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="card">
+            <h3>Bachelor of Laws (LLB)</h3>
+            <p><strong>University of Hertfordshire</strong><br>September 2023 — September 2027</p>
+            <div class="tag-list" aria-label="Academic strengths">
+              <span class="tag">Legal Analysis</span>
+              <span class="tag">Legal Research</span>
+              <span class="tag">Written Advocacy</span>
+              <span class="tag">Case Analysis</span>
+            </div>
+          </article>
+
+          <article>
+            <div class="courses">
+              <div class="course">
+                <strong>Essential Skills for Practice — Conducting Legal Research</strong>
+                The Law Society · Foundation Learning Track
+              </div>
+              <div class="course">
+                <strong>Recharge — Confidence Building</strong>
+                The Law Society · Foundation Learning Track
+              </div>
+              <div class="course">
+                <strong>Working Flexibly and Developing a Portfolio Career</strong>
+                The Law Society · Foundation Learning Track
+              </div>
+              <div class="course">
+                <strong>Working Flexibly as a Consultant</strong>
+                The Law Society · Foundation Learning Track
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Legal Interests &amp; Commentary</p>
+          <h2>Reading and writing on public law</h2>
+          <p>
+            Alongside my placement I follow developments in public, administrative and
+            immigration law. Below is a short note, in my own words, on a reported and publicly available Court of Appeal decision that interests me.
+          </p>
+        </div>
+
+        <div class="writing-grid">
+          <article class="card note">
+            <span class="note-tag">Public Law · Article 8</span>
+            <h3>IA &amp; Ors v SSHD [2025] EWCA Civ 1516</h3>
+            <p class="note-meta">Court of Appeal (Civil Division), 26 November 2025</p>
+            <p>
+              This appeal arose from a Palestinian family of six in Gaza who applied for entry
+              clearance outside the Immigration Rules to join a relative settled in the UK.
+              Their applications were refused and their appeals dismissed by the First-tier
+              Tribunal. The Court of Appeal clarified the test for establishing "family life"
+              between adult relatives under Article 8 ECHR, reaffirming the principle in
+              Kugathas v SSHD [2003] EWCA Civ 31 that more than normal emotional ties — real,
+              committed or effective support, or additional elements of dependence — must be
+              shown. It also considered when the State owes obligations to people outside its
+              territory, and stressed that considerable weight must be given to the Home
+              Secretary's immigration policy when assessing proportionality. The Secretary of
+              State's appeal succeeded. I find the case interesting because it sits at the
+              pressure point between individual human-rights protection and the executive's
+              control of immigration policy, and shows how the appellate courts calibrate that
+              balance.
+            </p>
+          </article>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Let’s connect</h2>
+            <p>
+              I welcome opportunities to continue developing my legal knowledge, advocacy,
+              research and litigation experience.
+            </p>
+          </div>
+          <a class="button" href="mailto:shahriar.shakir@hotmail.com">Email Shahriar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Shahriar Ahmed Shakir. Professional legal portfolio.
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', open);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
